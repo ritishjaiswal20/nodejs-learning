@@ -38,4 +38,34 @@ console.log(path.join(__dirname,'order','app.js'));// it will E:\web dev\nodejs\
 
 
 //File system
- 
+ const fs=require('fs')
+//  fs.mkdir(path.join(__dirname,'/test'),(err)=>{
+//      if(err){
+//          console.log(err);
+//          return
+//      }
+//      console.log("folder created");
+//  })
+
+//  fs.writeFile(path.join(__dirname,'test','test.txt'),'hello world',(err)=>{
+//      if(err){
+//          throw err;
+//      }
+//      fs.appendFile(path.join(__dirname,'test','test.txt'),'more data appended',(err)=>{
+//             if(err){
+//                 throw err;
+//             }
+//             console.log("data appneded");
+//      })
+//      console.log("file created");
+//  })
+
+//read a file
+fs.readFile(path.join(__dirname,'test','test.txt'),(err, data)=>{
+    if(err){
+        throw err;
+    }
+    const content=Buffer.from(data);
+    
+    console.log(content.toString());
+})
