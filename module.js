@@ -61,11 +61,47 @@ console.log(path.join(__dirname,'order','app.js'));// it will E:\web dev\nodejs\
 //  })
 
 //read a file
-fs.readFile(path.join(__dirname,'test','test.txt'),(err, data)=>{
+fs.readFile(path.join(__dirname,'test','test.txt'),'utf-8',(err, data)=>{
     if(err){
         throw err;
     }
-    const content=Buffer.from(data);
-    
-    console.log(content.toString());
+    // const content=Buffer.from(data);
+    // console.log(content.toString());
+    console.log(data);//when we use utf 8 it will directly write the data 
+}) 
+
+//os module
+const os = require('os');
+console.log('Os type:',os.type());
+console.log("Os platform",os.platform());
+console.log("Cpu architecture",os.arch());
+console.log("Cpu details",os.cpus());
+console.log("Free Memory",os.freemem());
+console.log("Total Memory",os.totalmem());
+console.log('Up time:',os.uptime());
+
+
+//Events module
+const Emitter=require('events')
+const myEmitter=new Emitter();
+myEmitter.on('somename',(data)=>{
+    console.log(data);
 })
+myEmitter.emit('somename',{
+    name:'ritishjaiswal',
+})
+
+// class Ath{
+//     register(username){
+//         console.log("register succesfully");
+//         this.emit('register',username);
+//     }
+// }
+// const ath=new Ath();
+// ath.on('register',(data)=>{
+//     console.log('sednign email to username');
+// })
+// // ath.on('register',(data)=>{
+// //     console.log('welcome email to username');
+// // })
+// ath.register("ritishjaiswal");
